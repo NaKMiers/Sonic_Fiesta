@@ -1,0 +1,43 @@
+body {
+   font-family: 'Montserrat', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+   --primary: #00bcd4;
+   --secondary: #212331;
+   --common-background: #1c1d28;
+   --text-secondary: #99a9b5;
+
+   --yellow: #f7be68;
+   --standard-duration: 0.2s;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+button,
+input,
+textarea {
+   outline: none;
+   border: none;
+   cursor: pointer;
+   background: none;
+}
+
+ul {
+   list-style: none;
+}
