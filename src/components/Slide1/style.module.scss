@@ -1,44 +1,23 @@
-.Slide1 {
-   flex-shrink: 0;
-   position: relative;
-   height: 100%;
-   overflow: hidden;
-}
-
-.background {
-   position: absolute;
-   top: 0;
-   z-index: -1;
-   width: 100%;
-   height: 100%;
-   background: url('../../assets/imgs/slideBG1.jpg') no-repeat top center / cover;
-}
-
-.container {
-   display: flex;
-   flex-wrap: wrap;
-   max-width: 1212px;
-   height: 100%;
-   width: 100%;
-   margin: 0 auto;
-   background: beige;
-}
-
 .left {
    display: flex;
+   flex-wrap: wrap;
    align-items: center;
 
    width: calc(505 * 100% / 1212);
-   background-color: black;
-   color: #fff;
-
    height: 100%;
+   color: #fff;
+   // background-color: black;
+
+   // pc
+   @media (max-width: 1200px) {
+      width: 100%;
+   }
 }
 
 .contentWrap {
    width: 100%;
    padding: 54px 21px 32px;
-   background: aquamarine;
+   // background: aquamarine;
 
    & > h1 {
       font-size: 68px;
@@ -47,7 +26,13 @@
       letter-spacing: 0.03em;
       white-space: pre-wrap;
       margin-bottom: 30px;
-      background: #000;
+      // background: #000;
+
+      // tablet
+      @media (max-width: 980px) {
+         font-size: 42px;
+         line-height: 61px;
+      }
    }
 
    & > h6 {
@@ -55,8 +40,10 @@
       font-weight: 200;
       line-height: 25px;
       text-transform: uppercase;
-      background: #000;
+      letter-spacing: 0.05em;
       margin-bottom: 1.1rem;
+
+      // background: #000;
    }
 
    & > button {
@@ -70,15 +57,24 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #fff;
+      transition: 0.2s ease-in-out;
 
-      background: #000;
+      &:hover {
+         color: rgb(80, 37, 97);
+         background: #fff;
+      }
    }
 }
 
 .right {
    flex: 1;
    padding: 14px 0;
-   background: blueviolet;
+   // background: blueviolet;
+
+   // pc
+   @media (max-width: 1200px) {
+      display: none;
+   }
 }
 
 .counterWrap {
@@ -106,7 +102,6 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-
    background: #ccc;
 
    &:nth-of-type(1) {
@@ -124,20 +119,21 @@
    width: 50%;
    height: 50%;
    padding: 12px 0 0 0;
+   text-align: right;
 
    &:nth-child(odd) {
       padding-right: 35px;
    }
 
    // background: blueviolet;
-   text-align: right;
 
    & > .label {
-      color: #fff;
       font-size: 16px;
       font-weight: 500;
       font-family: 'Source Sans Pro', sans-serif;
       line-height: 25px;
+      color: #fff;
+      margin-right: 4px;
    }
 
    & > .timeWrap {

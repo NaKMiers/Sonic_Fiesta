@@ -1,12 +1,13 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import styles from './style.module.scss'
+import slideBG1 from '../../assets/imgs/slideBG1.jpg'
 
 const duration0 = 300 // 300
 const duration1 = 310 // 310
 const duration2 = 320 // 320
 const delay = 800 // 800
 
-function Slide1() {
+function Slide1({ active }) {
    // day
    const [isDayChanging1, setDayChanging1] = useState(false)
    const [day1, setDay1] = useState(4) // 4
@@ -40,7 +41,7 @@ function Slide1() {
    const second1Ref = useRef(null)
 
    const [isSecChanging2, setSecChanging2] = useState(false)
-   const [second2, setSecond2] = useState(4) // 10
+   const [second2, setSecond2] = useState(1) // 10
    const second2Ref = useRef(null)
 
    useEffect(() => {
@@ -150,7 +151,7 @@ function Slide1() {
 
             setTimeout(() => {
                hour2Ref.current.style.transition = 'none'
-               setHour2(10) // 4
+               setHour2(hour1 === 1 ? 4 : 10) // 4
             }, duration1)
 
             setTimeout(() => {
@@ -164,7 +165,7 @@ function Slide1() {
             setHourChanging2(false)
          }, duration2)
       }
-   }, [isHourChanging2, hour2, countDownHour1])
+   }, [isHourChanging2, hour2, hour1, countDownHour1])
 
    // min
    const countDownMin1 = useCallback(() => {
@@ -283,10 +284,13 @@ function Slide1() {
    }, [countDownSec2])
 
    return (
-      <div className={styles.Slide1}>
-         <div className={styles.background} />
+      <div className={`slide`}>
+         <div
+            className={`background ${active ? 'zoomOut' : ''}`}
+            style={{ background: `url(${slideBG1}) no-repeat top center / cover` }}
+         />
 
-         <div className={styles.container}>
+         <div className={`container`}>
             <div className={styles.left}>
                <div className={styles.contentWrap}>
                   <h1>{'Legendary\nmusic\nfestival'}</h1>
@@ -357,7 +361,7 @@ function Slide1() {
 
                            <div className={styles.timeSlider}>
                               <div className={styles.timeSlideTrack} ref={hour2Ref}>
-                                 <span>9</span>
+                                 {hour1 === 3 || hour1 === 0 ? <span>3</span> : <span>9</span>}
 
                                  <span>0</span>
                                  <span>1</span>
