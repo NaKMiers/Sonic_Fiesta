@@ -1,0 +1,102 @@
+.container {
+   display: flex;
+   align-items: center;
+}
+
+.content {
+   width: 100%;
+   padding: 51.6px 21px;
+   text-align: center;
+   color: #fff;
+   // background: cyan;
+
+   & > h1 {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 69px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      // background: #ccc;
+
+      // tablet
+      @media (max-width: 980px) {
+         font-size: 42px;
+         line-height: 61px;
+      }
+   }
+
+   & > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 96px;
+      width: 100%;
+      margin-bottom: 30px;
+      // background: #eee;
+
+      & > img {
+         height: 85%;
+      }
+   }
+
+   & > p {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 42px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      // background: #ccc;
+   }
+}
+
+.videoModal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+
+   display: none;
+   opacity: 0;
+   justify-content: center;
+   align-items: center;
+   padding: 44px;
+   background: rgba(0, 0, 0, 0.8);
+   transition: 0.5s ease-in-out;
+}
+
+.closeBtn {
+   position: absolute;
+   top: 0;
+   right: 0;
+   color: #fff;
+
+   width: 44px;
+   height: 44px;
+
+   font-size: 30px;
+   color: #ccc;
+   opacity: 0;
+   transition: 0.2s ease-in-out;
+
+   &:hover {
+      color: #fff;
+   }
+}
+
+.video {
+   position: relative;
+
+   width: 100%;
+   padding-top: 56.25%;
+   background: #000;
+
+   & > iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+   }
+}
