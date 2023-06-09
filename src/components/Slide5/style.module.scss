@@ -106,6 +106,12 @@
       text-transform: uppercase;
       color: #fff;
       background: #2a1744;
+      transition: var(--standard-duration) ease-in-out;
+
+      &:hover {
+         color: #2a1744;
+         background: #fff;
+      }
    }
 }
 
