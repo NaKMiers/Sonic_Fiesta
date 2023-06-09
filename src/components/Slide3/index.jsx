@@ -1,14 +1,25 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import styles from './style.module.scss'
 import slideBG3 from '../../assets/imgs/slideBG3.jpg'
 import clockIcon from '../../assets/imgs/clockIcon.png'
 
-function Slide3({ active = true }) {
+function Slide3({ active }) {
+   const backgroundRef = useRef(null)
+   // background animation
+   useEffect(() => {
+      if (active) {
+         backgroundRef.current.classList.add('zoomOut')
+      } else {
+         backgroundRef.current.classList.remove('zoomOut')
+      }
+   }, [active])
+
    return (
       <div className={`slide`}>
          <div
-            className={`background ${active ? 'zoomOut' : ''}`}
+            className={`background out`}
             style={{ background: `url(${slideBG3}) no-repeat top center / cover` }}
+            ref={backgroundRef}
          />
 
          <div className={`${styles.container} container`}>

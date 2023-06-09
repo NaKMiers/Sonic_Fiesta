@@ -1,3 +1,10 @@
+.container {
+   // mobile large
+   @media (max-width: 768px) {
+      padding-top: 26px;
+   }
+}
+
 .left {
    display: flex;
    align-items: center;
@@ -29,6 +36,11 @@
          font-size: 46px;
          line-height: 50px;
       }
+
+      // mobile large
+      @media (max-width: 768px) {
+         margin-bottom: 32px;
+      }
    }
 
    & > .desc {
@@ -54,12 +66,13 @@
       // mobile large
       @media (max-width: 768px) {
          width: 100%;
+         margin-bottom: 45px;
       }
 
       & > .textBoxItemWrap {
          padding: 23px;
          background: #ffffff1c;
-         transition: 0.2s ease-in-out;
+         transition: var(--standard-duration) ease-in-out;
 
          &:hover {
             background: #ffffff4f;
@@ -74,7 +87,12 @@
             // background: aquamarine;
 
             & > img {
-               width: 70px;
+               height: 100%;
+            }
+
+            // mobile large
+            @media (max-width: 768px) {
+               height: 80px;
             }
          }
 
@@ -101,6 +119,13 @@
    width: (100%/3);
    display: flex;
    align-items: center;
+
+   // mobile large
+   @media (max-width: 768px) {
+      width: 100%;
+      padding-top: 38px;
+   }
+
    // background: blueviolet;
 }
 
@@ -121,6 +146,18 @@
    &:not(:last-child) {
       margin-bottom: 1.1rem;
       height: 150px;
+
+      // mobile large
+      @media (max-width: 768px) {
+         height: auto;
+         margin-bottom: 85px !important;
+      }
+   }
+
+   // mobile large
+   @media (max-width: 768px) {
+      flex-direction: column;
+      height: auto;
    }
 
    & > div:nth-of-type(1) {
@@ -131,8 +168,14 @@
       font-weight: 700;
       line-height: 60px;
       letter-spacing: 0.05em;
-      color: #ff4198;
+      color: var(--primary);
       // background: #000;
+
+      // mobile large
+      @media (max-width: 768px) {
+         font-size: 46px;
+         margin-bottom: 40px;
+      }
    }
 
    & > div:nth-of-type(2) {

@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import styles from './style.module.scss'
 import slideBG4 from '../../assets/imgs/slideBG4.jpg'
 import playIcon from '../../assets/imgs/playIcon.png'
@@ -7,15 +7,28 @@ function Slide4({ active }) {
    const videoModalRef = useRef(null)
    const closeBtnRef = useRef(null)
    const videoRef = useRef(null)
+   const backgroundRef = useRef(null)
 
+   // background animation
+   useEffect(() => {
+      if (active) {
+         backgroundRef.current.classList.add('zoomIn')
+      } else {
+         backgroundRef.current.classList.remove('zoomIn')
+      }
+   }, [active])
+
+   // SHOW close btn on over outside
    const handleMouseOver = () => {
       closeBtnRef.current.style.opacity = 1
    }
 
+   // HIDE close btn on over outside
    const handleMouseLeave = () => {
       closeBtnRef.current.style.opacity = 0
    }
 
+   // open modal
    const handleOpenModal = () => {
       videoModalRef.current.style.display = 'flex'
       setTimeout(() => {
@@ -23,6 +36,7 @@ function Slide4({ active }) {
       }, 0)
    }
 
+   // close modal
    const handleCloseModal = () => {
       videoModalRef.current.style.opacity = 0
       setTimeout(() => {
@@ -30,6 +44,7 @@ function Slide4({ active }) {
       }, 510) // duration: 0.5s
    }
 
+   // click outside
    const handleClickOutside = e => {
       if (videoRef.current && !videoRef.current.contains(e.target)) {
          handleCloseModal()
@@ -39,8 +54,9 @@ function Slide4({ active }) {
    return (
       <div className={`slide`}>
          <div
-            className={`background ${active ? 'zoomOut' : ''}`}
+            className={`background in`}
             style={{ background: `url(${slideBG4}) no-repeat top center / cover` }}
+            ref={backgroundRef}
          />
 
          <div className={`${styles.container} container`}>

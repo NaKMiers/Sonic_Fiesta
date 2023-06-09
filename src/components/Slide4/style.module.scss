@@ -1,6 +1,11 @@
 .container {
    display: flex;
    align-items: center;
+
+   // mobile large
+   @media (max-width: 768px) {
+      padding: 11.25px 0;
+   }
 }
 
 .content {
@@ -56,6 +61,7 @@
    left: 0;
    right: 0;
    bottom: 0;
+   z-index: 1;
 
    display: none;
    opacity: 0;
@@ -78,7 +84,7 @@
    font-size: 30px;
    color: #ccc;
    opacity: 0;
-   transition: 0.2s ease-in-out;
+   transition: var(--standard-duration) ease-in-out;
 
    &:hover {
       color: #fff;

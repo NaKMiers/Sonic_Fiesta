@@ -8,6 +8,8 @@ const duration2 = 320 // 320
 const delay = 800 // 800
 
 function Slide1({ active }) {
+   const backgroundRef = useRef(null)
+
    // day
    const [isDayChanging1, setDayChanging1] = useState(false)
    const [day1, setDay1] = useState(4) // 4
@@ -283,14 +285,24 @@ function Slide1({ active }) {
       }
    }, [countDownSec2])
 
+   // background animation
+   useEffect(() => {
+      if (active) {
+         backgroundRef.current.classList.add('zoomOut')
+      } else {
+         backgroundRef.current.classList.remove('zoomOut')
+      }
+   }, [active])
+
    return (
       <div className={`slide`}>
          <div
-            className={`background ${active ? 'zoomOut' : ''}`}
+            className={`background out`}
             style={{ background: `url(${slideBG1}) no-repeat top center / cover` }}
+            ref={backgroundRef}
          />
 
-         <div className={`container`}>
+         <div className={`${styles.container} container`}>
             <div className={styles.left}>
                <div className={styles.contentWrap}>
                   <h1>{'Legendary\nmusic\nfestival'}</h1>

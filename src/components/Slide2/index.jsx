@@ -1,17 +1,28 @@
-import React, { memo } from 'react'
-import styles from './style.module.scss'
-import slideBG2 from '../../assets/imgs/slideBG2.jpg'
+import React, { memo, useEffect, useRef } from 'react'
 import locationIcon from '../../assets/imgs/locationIcon.png'
+import slideBG2 from '../../assets/imgs/slideBG2.jpg'
+import styles from './style.module.scss'
 
 function Slide2({ active }) {
+   const backgroundRef = useRef(null)
+   // background animation
+   useEffect(() => {
+      if (active) {
+         backgroundRef.current.classList.add('zoomIn')
+      } else {
+         backgroundRef.current.classList.remove('zoomIn')
+      }
+   }, [active])
+
    return (
       <div className={`slide`}>
          <div
-            className={`background ${active ? 'zoomIn' : ''}`}
+            className={`background in`}
             style={{ background: `url(${slideBG2}) no-repeat top center / cover` }}
+            ref={backgroundRef}
          />
 
-         <div className={`container`}>
+         <div className={`${styles.container} container`}>
             <div className={styles.left}>
                <div className={styles.content}>
                   <h1 className={styles.title}>About Us</h1>

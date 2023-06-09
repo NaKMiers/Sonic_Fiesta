@@ -1,3 +1,10 @@
+.container {
+   // mobile large
+   @media (max-width: 768px) {
+      padding-top: 135px;
+   }
+}
+
 .left {
    display: flex;
    flex-wrap: wrap;
@@ -57,7 +64,7 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #fff;
-      transition: 0.2s ease-in-out;
+      transition: var(--standard-duration) ease-in-out;
 
       &:hover {
          color: rgb(80, 37, 97);
